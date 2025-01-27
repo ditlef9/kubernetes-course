@@ -77,19 +77,18 @@ gcloud artifacts repositories list
 The artifact registry repository should be available here:
 https://console.cloud.google.com/artifacts?project=sindre-dev-439512
 
+**Create bucket**
+
+```commandline
+gcloud storage buckets create gs://sindre-dev-439512_cloudbuild --location=europe-north1
+```
 
 
+**Create image**
 ```
 gcloud builds submit --region=europe-north1 --tag europe-north1-docker.pkg.dev/sindre-dev-439512/docker-repo/finnreka-gke .
 ```
 
-**List images:**<br>
-
-```
-gcloud artifacts repositories list
-gcloud artifacts docker images list europe-north1-docker.pkg.dev/sindre-dev-439512/finnreka-repo
-
-```
 
 **Deploy:**<br>
 ```
@@ -102,3 +101,18 @@ kubectl get deployment
 kubectl get service
 ```
 
+
+**Get deployment:**<br>
+```
+kubectl get pods
+kubectl describe pod finnreka-gke-576dc5464d-kmw8m
+```
+
+
+**Connect to pod and exec commands to it:**<br>
+```
+kubectl exec -it finnreka-gke-576dc5464d-kmw8m
+
+ls
+hostname
+```
