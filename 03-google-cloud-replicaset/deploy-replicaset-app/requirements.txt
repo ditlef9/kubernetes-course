@@ -1,0 +1,3 @@
+random_unicode_emoji
+gunicorn
+flask
