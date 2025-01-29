@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: finnreka-gke
+  name: hello-gke
 spec:
-  replicas: 1
+  replicas: 3
+
   selector:
     matchLabels:
-      app: finnreka
+      app: hello
   template:
     metadata:
       labels:
-        app: finnreka
+        app: hello
     spec:
       containers:
-      - name: finnreka-app
+      - name: hello-app
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
         # Replace $GCLOUD_PROJECT with your project ID.
-        image: europe-north1-docker.pkg.dev/sindre-dev-439512/docker-repo/finnreka-gke:latest
+        image: europe-north1-docker.pkg.dev/sindre-dev-439512/docker-repo/hello:latest
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080

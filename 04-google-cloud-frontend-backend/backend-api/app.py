@@ -20,7 +20,14 @@ def main():
     # Hostname
     hostname = socket.gethostname()
 
-    return f"<h1>The datetime is {datetime_ymdhms_saying} from hostname {hostname}</h1>"
+    # Return
+    data: dict = {
+        "datetime_ymdhms_saying": datetime_ymdhms_saying,
+        "hostname": hostname
+    }
+
+    return {"message": "Hello from backend", "data": data, "error": ""}, 200
+
 
 if __name__ == "__main__":
     app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
