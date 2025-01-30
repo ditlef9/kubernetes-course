@@ -19,7 +19,7 @@ Security
 * [v] Enable Workload Identity
 
 Features
-* [v] Enable Compute Engine Persisent Disk CSI Driver
+* [v] Enable Compute Engine Persistent Disk CSI Driver
 * [v] Enable Filestore CSI Driver
 
 ## 2 Create Cloud NAT gateway
