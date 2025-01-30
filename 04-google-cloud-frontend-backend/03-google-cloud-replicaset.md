@@ -26,38 +26,19 @@ https://console.cloud.google.com/kubernetes/workload/overview?project=sindre-dev
 
 
 
-**Create image**
 ```
-cd 03-google-cloud-replicaset/deploy-replicaset-app
-gcloud builds submit --region=europe-north1 --tag europe-north1-docker.pkg.dev/sindre-dev-439512/docker-repo/hello . --project=sindre-dev-439512
-```
+# Go to backend dir
+cd 04-google-cloud-frontend-backend\frontend-next
 
-**Deploy:**<br>
-```
+# Build image
+gcloud builds submit --region=europe-north1 --tag europe-north1-docker.pkg.dev/sindre-dev-439512/docker-repo/frontend-next . --project=sindre-dev-439512
+
+# Deploy backend
 kubectl apply -f kube-manifest/
-```
 
-**Get deployment, service and replicaset:**<br>
-```
-kubectl get deployment
-kubectl get service
-kubectl get replicaset
-kubectl get pods
-kubectl describe pod <pod-name>
-```
+# Get the Cluster IP of backend-api
+kubectl get all
 
-
-**Get deployment:**<br>
-```
-kubectl get pods
-kubectl describe pod finnreka-gke-576dc5464d-kmw8m
-```
-
-
-**Connect to pod and exec commands to it:**<br>
-```
-kubectl exec -it finnreka-gke-576dc5464d-kmw8m
-
-ls
-hostname
+# The workload can be viewed here:
+https://console.cloud.google.com/kubernetes/workload/overview?project=sindre-dev-439512
 ```
